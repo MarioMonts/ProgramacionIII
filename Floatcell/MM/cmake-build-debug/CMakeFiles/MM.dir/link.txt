@@ -1,3 +1,0 @@
-C:\Users\montesma\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\MM.dir/objects.a
-C:\Users\montesma\AppData\Local\Programs\CLion\bin\mingw\bin\ar.exe qc CMakeFiles\MM.dir/objects.a @CMakeFiles\MM.dir\objects1.rsp
-C:\Users\montesma\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\MM.dir/objects.a -Wl,--no-whole-archive -o MM.exe -Wl,--out-implib,libMM.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MM.dir\linkLibs.rsp
