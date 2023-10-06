@@ -223,16 +223,16 @@ const_iterator
 
 ### Opinión Crítica y Conclusiones:
 
-Esta sección del capítulo habló principalmente sobre tres cosas: la primera es ilustrar los elementos mas importantes de una Lista (nodos, punteros, cabeza y cola), la segunda fue plantear a grandes rasgos la estructura de una Clase Lista (que se integra por la creación misma de la clase, otra clase para los nodos y otra clase para los iteradores) y la tercera fue mostrar un código con la sintáxis de todo lo descrito anteriormente.
+Esta sección del capítulo habló principalmente sobre tres cosas: la primera es ilustrar los elementos mas importantes de una Lista (nodos, punteros, cabeza y cola), la segunda fue plantear a grandes rasgos la estructura de una Clase Lista (que se integra por la creación misma de la clase, otra clase para los nodos y otra clase para los iteradores) y la tercera fue mostrar un código con la sintaxis de todo lo descrito anteriormente.
 
-Me quedan varias dudas sobre la sintáxis, ya que me es dificil comprender viendo tantas líneas y relacionarlas con el texto que las explica pero espero me queden mas claras con la actividad que tenemos paralela a este resumen (documentar el código de un Lista).
+Me quedan varias dudas sobre la sintaxis, ya que me es dificil comprender viendo tantas líneas y relacionarlas con el texto que las explica pero espero me queden mas claras con la actividad que tenemos paralela a este resumen (documentar el código de un Lista).
 
 -------------------------------------------------------------------------------------------------
 
 ### Conclusión General
 Este tema es casi completamente nuevo para mi. Tenía conocimiento de los Vectores y Arreglos pero solamente su aplicación directa en el Main. Este capítulo abarca sobre como hacer una Clase a partir de los templates existentes para una Lista y un Vector, lo cual hace el tema un poco mas difícil de entender. 
 
-Me ayuda que esto va relacionado con las Clases que vimos en el primer parcial ya que la estructura de la creación de la clase es muy similar pero mucha de la sintáxis me sigue siendo compleja de entender por la parte de los iteradores y nodos. Me sentiré mas cómodo con mi aprendizaje una vez que pueda documentar línea por línea en la actividad que tenemos asignada sobre "Documentar una Lista".
+Me ayuda que esto va relacionado con las Clases que vimos en el primer parcial ya que la estructura de la creación de la clase es muy similar pero mucha de la sintaxis me sigue siendo compleja de entender por la parte de los iteradores y nodos. Me sentiré mas cómodo con mi aprendizaje una vez que pueda documentar línea por línea en la actividad que tenemos asignada sobre "Documentar una Lista".
 
 
 ### Referencias 
