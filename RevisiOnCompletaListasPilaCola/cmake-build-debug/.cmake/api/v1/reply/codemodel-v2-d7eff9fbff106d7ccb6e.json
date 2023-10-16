@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ListClass",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ListClass::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ListClass-Debug-c3d4002e5731aacb8a2d.json",
+					"name" : "ListClass",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/montesma/Documents/Personal/Semestre III/Programaci\u00f3n III/FilesGIT/RevisiOnCompletaListasPilaCola/cmake-build-debug",
+		"source" : "C:/Users/montesma/Documents/Personal/Semestre III/Programaci\u00f3n III/FilesGIT/RevisiOnCompletaListasPilaCola"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
