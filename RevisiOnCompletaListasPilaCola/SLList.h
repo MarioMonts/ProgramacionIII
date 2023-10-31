@@ -5,8 +5,8 @@
 #include <iostream>
 #include <utility>
 
-template <typename Object> // Este es indicador de que estamos usando un template de la librería fundamental de C++
-class SLList { // Estamos asingándole nombre a la clase que en este caso será SLList
+template <typename Object> // Este es indicador de que estamos usando un template de la librería fundamental de C++ y nos permite trabajar con diferentes tipos de datos
+class SLList { // Estamos asignándole nombre a la clase que en este caso será SLList
 private: // Comenzaremos con los constructores privados, aquellos que no queremos sean cambiados en ningúna otra parte del código
 
     struct Node  { // En esta parte vamos a crear el flujo de los Nodos (que son los elementos de la lista)
@@ -26,8 +26,8 @@ private: // Comenzaremos con los constructores privados, aquellos que no queremo
 
 public:
     class iterator { // Para que una lista funcione, se necesita de un iterador y aquí lo estamos creando
-    public: // La clase iterador va a ser de tipo publico porque queremos que pueda ser accesado por diferentes partes del código
-        iterator() : current{nullptr} {} // Aquí el constructor inicializa el iterador diciendo que no apunta a ningun nodo
+    public: // La clase iterador va a ser de tipo público porque queremos que pueda ser accesado por diferentes partes del código
+        iterator() : current{nullptr} {} // Aquí el constructor inicializa el iterador diciendo que no apunta a ningún nodo
 
 
         // Aquí se hace una sobrecarga para el operador * y lo reconozca como puntero y hay una condición que dice que si el current es un puntero nulo, que mande un error
@@ -38,8 +38,8 @@ public:
         }
 
         // Esta es otra sobrecarga para el operador ++. Con verlo parece que es la iteración, el ir avanzando entre nodos. Simboliza un incremento. Este es el que Lee
-        // Hay una condición para que siga avanzando y otro mensaje para que ya no lo haga porque llegó al ultimo nodo
-        // un -- sería para retroceder pero esto solo se puede hacer en una doble lista porque hay flujo bi-direccional. En la sencilla no se puede porque solo va hacia adelante en una direccion
+        // Hay una condición para que siga avanzando y otro mensaje para que ya no lo haga porque llegó al último nodo
+        // un -- sería para retroceder pero esto solo se puede hacer en una doble lista porque hay flujo bi-direccional. En la sencilla no se puede porque solo va hacia adelante en una dirección
         iterator &operator++() {
             if(current)
                 current = current->next;
@@ -47,7 +47,6 @@ public:
                 throw std::logic_error("Trying to increment past the end.");
             return *this;
         }
-
 
         // Aquí se está haciendo otra sobrecarga para el operador ++ pero con un valor int.
         // Este segundo iterador es el que lleva los conteos y el primero (anterior) es el que lee
@@ -57,8 +56,6 @@ public:
             return old;
         }
 
-
-
         // Aquí se está haciendo otra sobrecarga para el operador ==
         // El igual es para que la lista pueda evaluar condiciones (concepto similar al de un while)
         bool operator==(const iterator &rhs) const {
@@ -66,14 +63,14 @@ public:
         }
 
         // Aquí se está haciendo otra sobrecarga para el operador !=
-        // El diferente de es para que la lista pueda evaluar condiciones (concepto similar al de un while)
+        // El diferente de, es para que la lista pueda evaluar condiciones (concepto similar al de un while)
         bool operator!=(const iterator &rhs) const {
             return !(*this == rhs);
         }
 
 
     private:
-        Node *current; // Representa el nodo actual al que apunta el iterador. NO ENTIENDO para qué es necesario/ guarda el orden del iterador como objeto
+        Node *current; // Representa el nodo actual al que apunta el iterador.
         iterator(Node *p) : current{p} {} // Este es otro constructor con un parámetro y que inicializa el valor de p en current
         friend class SLList<Object>; // friend class/ es una forma de decirle que a mis atributos privados puedo entrar yo como iterador o a lista para modificarla
     };
@@ -82,10 +79,10 @@ public:
 // Esto parece ser otro constructor que define e inicio, el final y el tamaño de cada nodo
 public:
     SLList() : head(new Node()), tail(new Node()), theSize(0) {
-        head->next = tail; // Es para definir el minimo que debe de tener una lista que es un inicio y final y ya de ahí puedo meterle mas nodos pero x default debe de tener esos dos
+        head->next = tail; // Es para definir el mínimo que debe de tener una lista que es un inicio y final y ya de ahí puedo meterle más nodos pero x default debe de tener esos dos
     }
 // Este es el destructor, que limpia la memoria del inicio (head) o el tail (final)
-// Primero borra todos los elementos de la lista y leugo borra los espacios de memoria para la cabeza y cola
+// Primero borra todos los elementos de la lista y luego borra los espacios de memoria para la cabeza y cola
     ~SLList() {
         clear();
         delete head;
@@ -99,16 +96,16 @@ public:
     int size() const { return theSize; } // Función para que regrese el tamaño de la lista y saber cuanto se va a iterar
     bool empty() const { return size() == 0; } // Función para saber si la lista está vacía
 
-    void clear() { while (!empty()) pop_front(); } // Función para limpiar todos los elementos que estén en la lista//
+    void clear() { while (!empty()) pop_front(); } // Función para limpiar todos los elementos que estén en la lista
 
-    Object &front() { // Esta es una función para revisar el primer valor de la lista y verificar si está vacío // si la lista no está vacia, regresa a el elemento de hasta enfrente
+    Object &front() { // Esta es una función para revisar el primer valor de la lista y verificar si está vacío // si la lista no está vacia, regresa al elemento de hasta enfrente
         if(empty())
             throw std::logic_error("List is empty.");
         return *begin();
     }
 
     void push_front(const Object &x) { insert(begin(), x); } // Es una función para insertar un nuevo elemento al inicio de la lista
-    void push_front(Object &&x) { insert(begin(), std::move(x)); } // Es una función similar a la anterior.
+    void push_front(Object &&x) { insert(begin(), std::move(x)); } // Es una función similar a la anterior
     // Son dos porque uno es por copia y otro por referencia
 
     void pop_front() { // Es una función que quita el primer elemento deu na lista. Si ya está vacío, manda un error
@@ -135,7 +132,7 @@ public:
 
     iterator erase(iterator itr) { // Esta es una función que quita el elemento al que está apuntado el iterador
         if (itr == end())
-            throw std::logic_error("Cannot erase at end iterator"); // Aquí hace una validación donde si el iterador está apuntdo al final de la lista, salga un error
+            throw std::logic_error("Cannot erase at end iterator"); // Aquí hace una validación donde si el iterador está apuntando al final de la lista, salga un error
         Node *p = head; // Inicializa un puntero al inicio del nodo
         while (p->next != itr.current) p = p->next;
         p->next = itr.current->next;
@@ -153,11 +150,11 @@ public:
         std::cout << std::endl;
     }
 
-private: // se van a delimitar los miembors que son privados para que no puedan ser modificados desde otra parte de la clase
+private: // se van a delimitar los miembros que son privados para que no puedan ser modificados desde otra parte de la clase
     Node *head; // Es un puntero al inicio de la lista
     Node *tail; // Es un puntero al final de la lista
     int theSize; // guarda el tamaño de la lista
-    void init() { // Es el inicializador o constructor para inicializar una lista vacia
+    void init() { // Es el inicializador o constructor para inicializar una lista vacía
         theSize = 0; // Hace que el tamaño inicial de la lista sea cero
         head->next = tail; // Hace que desde el inicio de la lista siga moviendo los nodos hasta que llegue al final
     }

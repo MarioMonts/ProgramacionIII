@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(ListClass main.cpp
         SLList.h
-        DLList.h)
+        DLList.h
+        Stack.h
+        Queue.h)

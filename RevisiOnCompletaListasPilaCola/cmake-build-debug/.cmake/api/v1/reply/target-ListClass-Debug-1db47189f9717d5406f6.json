@@ -97,7 +97,9 @@
 			"sourceIndexes" : 
 			[
 				1,
-				2
+				2,
+				3,
+				4
 			]
 		}
 	],
@@ -117,6 +119,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "DLList.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Stack.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Queue.h",
 			"sourceGroupIndex" : 1
 		}
 	],

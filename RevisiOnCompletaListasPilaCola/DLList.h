@@ -5,6 +5,8 @@
 #include <iostream>
 #include <utility>
 
+// La clase DLList es muy similar a la SLList. Solo estoy comentando las líneas que se tuvieron que agregar
+
 template <typename Object>
 class DLList {
 private:
@@ -52,8 +54,8 @@ public:
             return !(*this == rhs);
         }
 
-        //////////////////////////////////////////////////////////////
-
+        // Esta es una sobrecarga adicional que se tuvo que agregar para que mi DLLista reconociera el operador + y así poder insertar valores en la lista a través de adiciones
+        // Esto no estaba en la SLList y por eso fue necesario agregarlo
         iterator operator+(int n) const {
             iterator iter = *this;
             for (int i = 0; i < n; ++i) {
@@ -64,7 +66,6 @@ public:
             return iter;
         }
 
-        ////////////////////////////////////////////////////////////
 
 
     private:
@@ -102,10 +103,10 @@ public:
     void push_front(const Object &x) { insert(begin(), x); }
     void push_front(Object &&x) { insert(begin(), std::move(x)); }
 
-    ///////////////////////////////////////////////////////////////////
-    void push_back(const Object &x) { insert(end(), x); }
-    void push_back(Object &&x) { insert(end(), std::move(x)); }
-   ////////////////////////////////////////////////////////////////////
+    // Este es otro elemento que se agregó en la DLList y que no estaba en la SLList.
+    void push_back(const Object &x) { insert(end(), x); } // Hace que pueda agregar elementos al final de mi lista por copia
+    void push_back(Object &&x) { insert(end(), std::move(x)); } // Hace que pueda agregar elementos al final de mi lista por referencia
+
 
 
 
@@ -129,17 +130,20 @@ public:
         return iterator(head->next);
     }
 
-    //////////////////////////////////////////////////////////////
+    // Esta es otra función que no estaba en mi SLLIST y que es necesario agregar en la DLLIST
+    // Lo que hace a grandes rasgos es poder insertar un valor en mi lista en una posición en específico
+    // Una es por copia y otra por referencia. Comentaré únicamente la de copia
+
     iterator insert(int index, const Object &x) {
         if (index < 0 || index > theSize)
-            throw std::out_of_range("Index out of range");
+            throw std::out_of_range("Index out of range"); // Aquí evalúa que la posición deseada sea permitida
 
-        Node *p = head;
+        Node *p = head; // Aquí se hace la navegación de los nodos hasta llegar al indicado
         for (int i = 0; i < index; ++i) {
             p = p->next;
         }
 
-        p->next = new Node{x, p->next};
+        p->next = new Node{x, p->next}; // Se crea el nuevo nodo en la posición deseada
         theSize++;
         return iterator(p->next);
     }
@@ -157,10 +161,6 @@ public:
         theSize++;
         return iterator(p->next);
     }
-
-    ///////////////////////////////////////////////////////
-
-
 
 
     iterator erase(iterator itr) {
